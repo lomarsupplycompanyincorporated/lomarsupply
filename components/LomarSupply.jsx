@@ -5,6 +5,7 @@ import {
   Eye, Filter, Phone, Mail, MapPin, ArrowUpRight, Menu, X, Ship, Factory,
   Mountain, Zap, Fuel, Plus, Clock, Globe, CircleDot,
 } from "lucide-react";
+import { PRODUCTS, CATEGORIES, CAT_LABEL } from "../lib/products";
 
 /* ------------------------------------------------------------------ */
 /*  Lomar Supply Co., Inc. — environmental spill-response supply house */
@@ -134,7 +135,7 @@ const CSS = `
 .chip .ct{opacity:.55;font-size:11px}
 .chip.on .ct{opacity:.8}
 .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.prod{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px;transition:.25s;position:relative;overflow:hidden}
+.prod{display:block;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px;transition:.25s;position:relative;overflow:hidden}
 .prod::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--lime);transform:scaleY(0);transform-origin:top;transition:.28s}
 .prod:hover{transform:translateY(-3px);border-color:rgba(125,192,66,.55);box-shadow:var(--shadow)}
 .prod:hover::before{transform:scaleY(1)}
@@ -269,57 +270,6 @@ const CAPABILITIES = [
   { icon: FlaskConical, t: "Oil Spill Dispersants", d: "Water-based Formula 1111 and citrus-solvent Eurolube 3070 for surface treatment across a wide temperature range." },
   { icon: Container, t: "Secondary Containment", d: "Spill decks, pallets, berms and containment units that stop leaks at the source before they spread." },
   { icon: Droplets, t: "Turbidity & Silt Curtains", d: "Floating curtains, dredge barriers and baffle booms that control sediment during marine and dredging works." },
-];
-
-const CATS = [
-  { k: "All", label: "All products" },
-  { k: "Booms", label: "Booms & Barriers" },
-  { k: "Skimmers", label: "Skimmers" },
-  { k: "Kits", label: "Spill Kits" },
-  { k: "Sorbents", label: "Absorbents" },
-  { k: "Containment", label: "Secondary Containment" },
-  { k: "Dispersants", label: "Dispersants" },
-];
-const CAT_LABEL = {
-  Booms: "Booms & Barriers", Skimmers: "Skimmers", Kits: "Spill Kits",
-  Sorbents: "Absorbents", Containment: "Containment", Dispersants: "Dispersants",
-};
-
-const PRODUCTS = [
-  // Booms & barriers
-  { cat: "Booms", brand: "Expandi", name: "Self-Inflatable Oil Boom", desc: "Pops open in seconds for rapid open-water encirclement — the original self-inflatable design, proven worldwide." },
-  { cat: "Booms", brand: "Parker Systems", name: "Floating Containment Boom", desc: "All-purpose PVC boom that links to any length to hold oil on the surface." },
-  { cat: "Booms", brand: "Parker Systems", name: "Permanent / Harbour Boom", desc: "Heavy-duty boom for fixed deployment at ports, outfalls and marinas." },
-  { cat: "Booms", brand: "Parker Systems", name: "Boom Hardware & Accessories", desc: "Connectors, anchors, tow bridles and reels for fast, reliable deployment." },
-  { cat: "Booms", brand: "Parker Systems", name: "Turbidity / Silt Curtain", desc: "Controls suspended sediment during dredging and marine construction." },
-  { cat: "Booms", brand: "Parker Systems", name: "Dredge Barrier", desc: "Robust barrier for containment around active dredging sites." },
-  { cat: "Booms", brand: "Parker Systems", name: "Baffle Boom", desc: "Directs and calms flow in channels, canals and water intakes." },
-  // Skimmers
-  { cat: "Skimmers", brand: "Parker Systems", name: "Skimpak Skimmer", desc: "Surface skimmer that recovers oil with minimal water pickup for low-waste cleanup." },
-  { cat: "Skimmers", brand: "Parker Systems", name: "Weir Skimmer", desc: "Adjustable weir head for efficient recovery of floating product." },
-  // Spill kits
-  { cat: "Kits", brand: "Parker Systems", name: "Bagged Spill Kit", desc: "Grab-and-go kit for fast first response to small oil and chemical spills." },
-  { cat: "Kits", brand: "Lomar Supply", name: "SOPEP Marine Spill Kit", desc: "IMO-compliant kit for vessels under Ship Oil Pollution Emergency Plan rules." },
-  { cat: "Kits", brand: "Parker Systems", name: "Wheeled / Drum Spill Kit", desc: "High-capacity mobile kit for larger industrial spill events." },
-  { cat: "Kits", brand: "Parker Systems", name: "Vehicle & Truck Spill Kit", desc: "Compact kit for fleets transporting fuels or chemicals." },
-  // Absorbents
-  { cat: "Sorbents", brand: "Parker Systems", name: "Absorbent Pads", desc: "Oil-only and universal pads that lift oil — and, in universal form, other fluids — from water and hard surfaces." },
-  { cat: "Sorbents", brand: "Parker Systems", name: "Absorbent Socks (Socs)", desc: "Flexible socks that snake around equipment and dike leaks to contain and soak up spills." },
-  { cat: "Sorbents", brand: "Parker Systems", name: "Absorbent Pillows", desc: "High-capacity pillows for soaking up pooled oil under drips, leaks and machinery." },
-  { cat: "Sorbents", brand: "Parker Systems", name: "Absorbent Booms", desc: "Floating absorbent booms that corral and soak up oil on open water and around outfalls." },
-  { cat: "Sorbents", brand: "Parker Systems", name: "OilSnare Singles", desc: "Snares heavy, weathered oil that ordinary absorbents can't hold." },
-  { cat: "Sorbents", brand: "Parker Systems", name: "OilSnare on a Rope", desc: "Deployable rope of snares for shoreline and heavy-oil cleanup worldwide." },
-  // Secondary containment
-  { cat: "Containment", brand: "Parker Systems", name: "Spill Deck", desc: "Low-profile platform that captures drum and container leaks at the source." },
-  { cat: "Containment", brand: "Parker Systems", name: "Spill Pallet", desc: "2- and 4-drum pallets with integral sump for compliant storage." },
-  { cat: "Containment", brand: "Parker Systems", name: "Drum Stacker", desc: "Stackable containment for dense, space-saving drum storage." },
-  { cat: "Containment", brand: "Parker Systems", name: "Containment Unit", desc: "Modular containment for bulk storage and transfer areas." },
-  { cat: "Containment", brand: "Parker Systems", name: "Containment Berm", desc: "Portable berm for vehicles, tanks and equipment." },
-  { cat: "Containment", brand: "Parker Systems", name: "Fuel Vent Bag", desc: "Catches overfill from tank vents before it reaches the ground." },
-  { cat: "Containment", brand: "Parker Systems", name: "Drain Cover / Seal", desc: "Seals drains to stop spills from entering waterways." },
-  // Dispersants
-  { cat: "Dispersants", brand: "Lomar Supply", name: "Formula 1111 Dispersant", desc: "Water-based dispersant applied from the drum via venturi ejector for surface treatment." },
-  { cat: "Dispersants", brand: "Lomar Supply", name: "Eurolube Formula 3070", desc: "Natural citrus-solvent dispersant — nonyl-phenol-free and pourable across a wide temperature range." },
 ];
 
 const PARTNERS = [
@@ -501,10 +451,10 @@ export default function LomarSupply() {
             <p>In partnership with Expandi and Parker Systems, our booms and skimmers are made with top-quality materials and carry Philippine Coast Guard certification. Browse the range by category, then request a quote on any item.</p>
           </div>
           <div className="cat-bar" data-reveal>
-            {CATS.map((c) => {
-              const n = c.k === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => p.cat === c.k).length;
+            {[{ key: "All", label: "All products" }, ...CATEGORIES].map((c) => {
+              const n = c.key === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => p.cat === c.key).length;
               return (
-                <button key={c.k} className={"chip" + (activeCat === c.k ? " on" : "")} onClick={() => setActiveCat(c.k)}>
+                <button key={c.key} className={"chip" + (activeCat === c.key ? " on" : "")} onClick={() => setActiveCat(c.key)}>
                   {c.label} <span className="ct">{n}</span>
                 </button>
               );
@@ -512,14 +462,12 @@ export default function LomarSupply() {
           </div>
           <div className="prod-grid">
             {PRODUCTS.filter((p) => activeCat === "All" || p.cat === activeCat).map((p) => (
-              <div className="prod" key={p.name}>
+              <a className="prod" href={`/products/${p.slug}`} key={p.slug}>
                 <div className="pc"><span>{CAT_LABEL[p.cat]}</span><span className="br">{p.brand}</span></div>
                 <h4>{p.name}</h4>
                 <p>{p.desc}</p>
-                <a className="inq" href={`mailto:customerservice@lomarsupply.com?subject=${encodeURIComponent("Quote request: " + p.name)}`}>
-                  Request quote <ArrowUpRight size={13} />
-                </a>
-              </div>
+                <span className="inq">View product <ArrowUpRight size={13} /></span>
+              </a>
             ))}
           </div>
         </div>
