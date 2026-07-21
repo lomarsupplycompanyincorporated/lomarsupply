@@ -56,7 +56,7 @@ const CSS = `
 .navlinks{display:flex;gap:30px;align-items:center}
 .navlinks a{font-size:14px;color:var(--ink2);transition:.2s;position:relative}
 .navlinks a:hover{color:var(--brand)}
-.navcta{background:var(--brand);color:#fff;font-weight:700;padding:11px 18px;border-radius:8px;font-size:13.5px;
+.lomar .navcta{background:var(--brand);color:#fff;font-weight:700;padding:11px 18px;border-radius:8px;font-size:13.5px;
   display:inline-flex;align-items:center;gap:7px;transition:.2s;border:none;cursor:pointer;font-family:'IBM Plex Sans'}
 .navcta:hover{background:var(--brandDk);transform:translateY(-1px)}
 .burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:9px;cursor:pointer;place-items:center}
@@ -84,7 +84,7 @@ const CSS = `
 .hero h1 .a{color:var(--brand)}
 .hero .lead{font-size:clamp(16px,2vw,20px);color:var(--ink2);max-width:620px;margin:26px 0 34px}
 .hbtns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn-p{background:var(--brand);color:#fff;font-weight:700;padding:15px 24px;border-radius:10px;
+.lomar .btn-p{background:var(--brand);color:#fff;font-weight:700;padding:15px 24px;border-radius:10px;
   display:inline-flex;align-items:center;gap:9px;font-size:15px;transition:.2s;border:none;cursor:pointer;font-family:'IBM Plex Sans'}
 .btn-p:hover{background:var(--brandDk);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(10,122,60,.5)}
 .btn-g{border:1px solid var(--line);color:var(--ink);padding:15px 22px;border-radius:10px;
