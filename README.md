@@ -23,10 +23,37 @@ components/
   LomarSupply.jsx # the entire site (starts with "use client")
 ```
 
-All copy and the product catalog are plain data arrays near the top of
-`components/LomarSupply.jsx` (`CAPABILITIES`, `PRODUCTS`, `PARTNERS`,
-`INDUSTRIES`, `TIMELINE`). Brand colors are the CSS variables in the `CSS`
-string (`--brand` #0a7a3c, `--lime` #7dc242).
+Home-page copy (capabilities, partners, industries, history) lives in
+`components/LomarSupply.jsx`. The **product catalog is now in
+`lib/products.js`** — one entry per product with a stable `slug`. Brand
+colors are CSS variables (`--brand` #0a7a3c, `--lime` #7dc242) in
+`app/globals.css` and inside the home component.
+
+## Product pages
+
+- `/products` — filterable catalog index (`app/products/page.jsx`)
+- `/products/<slug>` — one landing page per product, generated automatically
+  from `lib/products.js` (`app/products/[slug]/page.jsx`)
+
+Home-page catalog cards and the index both link to these pages.
+
+### Uploading a product image
+Drop one image per product into **`public/products/`**, named after the
+product's `slug` (see `public/products/README.txt` for the full list):
+
+```
+public/products/skimpak-skimmer.jpg
+public/products/self-inflatable-oil-boom.jpg
+```
+
+`.jpg`, `.jpeg`, `.png` and `.webp` all work. Until an image exists, the page
+shows a branded "image coming soon" placeholder — no broken images. Commit the
+images and push; Vercel redeploys. Recommended size ~1200×900 (4:3).
+
+### Adding or editing a product
+Edit `lib/products.js`. Add an object with a unique `slug`, `cat` (one of the
+`CATEGORIES` keys), `brand`, `name` and `desc`. Its page, the index entry, and
+the home-page card all appear automatically.
 
 ## Deploy to Vercel
 
