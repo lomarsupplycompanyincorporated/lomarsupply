@@ -1,6 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://www.lomarsupply.com"),
   title: "Lomar Supply Co., Inc. — Environmental Spill Response",
   description:
     "The Philippines' full-service environmental supply house for oil-spill response — booms, skimmers, absorbents, dispersants and secondary containment. Coast Guard-certified equipment, in local stock, with a 24/7 spill hotline.",
